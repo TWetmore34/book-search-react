@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/book-search-react/static/css/main.51c9a447.css",
+    "main.js": "/book-search-react/static/js/main.b12a3c7c.js",
+    "static/js/787.9d442215.chunk.js": "/book-search-react/static/js/787.9d442215.chunk.js",
+    "index.html": "/book-search-react/index.html",
+    "main.51c9a447.css.map": "/book-search-react/static/css/main.51c9a447.css.map",
+    "main.b12a3c7c.js.map": "/book-search-react/static/js/main.b12a3c7c.js.map",
+    "787.9d442215.chunk.js.map": "/book-search-react/static/js/787.9d442215.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.51c9a447.css",
+    "static/js/main.b12a3c7c.js"
+  ]
+}
