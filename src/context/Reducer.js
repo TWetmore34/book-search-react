@@ -9,6 +9,9 @@ export default function reducer(state, action) {
             // sets state to null while fetch request works
             return null
 
+        case actions.bookError:
+            return undefined
+            
         case actions.addWishlist:
             // check for repeats while rereating state
             let repeat = false;

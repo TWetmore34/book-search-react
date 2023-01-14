@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useBookContext } from '../../context/ContextStore';
 import useTrie from '../../hooks/autocomplete/useTrie';
-import { getBooks, loadBooks } from '../../context/actionCreators';
+import { getBooks, loadBooks, bookErrorMsg } from '../../context/actionCreators';
+import genBooksUrl from '../../helpers/genBooksUrl';
 
 const QueryForm = () => {
   // creates trie from hooks/autocomplete/trie.json for autocomplete suggestions
@@ -23,19 +24,20 @@ const QueryForm = () => {
   const handleSubmit = async () => {
     // generate books/loading for the <Loading /> component to render and expands trie for future searches (NOTE: currently does not last past a page refresh - working on a fix)
     setBooks(loadBooks());
-    trie.insert(queryValue);
     try {
       // fetch request sent to reducer function updates state
-      let url = `https://www.googleapis.com/books/v1/volumes?q=${queryValue}&startIndex=0&maxResults=20`
+      let url = genBooksUrl(queryValue)
+
       let req = await fetch(url);
       let data = await req.json();
       setBooks(getBooks(data.items));
-
+      
     } catch (err) {
+      setBooks(bookErrorMsg())
       throw new Error(err)
     }
-    // reset form value
-    setQueryValue("");
+    // reset form value (this change isnt being visualized, so for now ive removed it to prevent errors)
+    // setQueryValue("");
   }
   return (
     <>
