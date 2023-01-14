@@ -44,6 +44,7 @@ li {
 .book--text__container {
   margin: 4%;
   width: 50%;
+  min-height: 30vh;
 }
 
 .book--text__container > p {
