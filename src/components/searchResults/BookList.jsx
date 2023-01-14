@@ -2,6 +2,7 @@ import { useBookContext } from '../../context/ContextStore'
 import Book from './Book';
 import Loading from './Loading'
 const BookList = () => {
+  // map through books state - if null, render loading component
     let books = useBookContext()[0];
   return (
     <ul className='booklist'>

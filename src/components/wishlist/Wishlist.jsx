@@ -1,6 +1,7 @@
 import WishlistBook from "./WishlistBook"
 import { useWishlistContext } from "../../context/ContextStore";
 const Wishlist = () => {
+    // wishlist context is mapped with WishlistBook as return
     let [wishList] = useWishlistContext();
   return (
     <div className="wishlist__container">

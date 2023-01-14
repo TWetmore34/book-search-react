@@ -1,13 +1,21 @@
 import React, { useState } from 'react'
 import { useWishlistContext } from '../../context/ContextStore'
+import { addWishlist } from '../../context/actionCreators'
 const Book = ({title, author, imgSrc, publisher, publishDate, description, id}) => {
+  // expansion and overFlowY are for styling. Default state hides lengthy descriptions, while onClick event shows the full page
   const [expand, setExpand] = useState(true)
   const [overflowY, setOverflow] = useState({overflowY: "hidden", height: "30vh"});
+
+  // global wishlist dispatcher
   let setWishList = useWishlistContext()[1]
+
+  // call dispatcher with id and title of current book
   const handleClick = () => {
-    setWishList({type: "wishlist/add", payload: {title, id}})
+    setWishList(addWishlist(id, title))
   }
+
   const handleExpansion = () => {
+    // flip expansion and set styles to either expanded or shrunk
     setExpand(!expand)
     if(expand) {
       setOverflow({overflowY: "visible", height: "auto"})

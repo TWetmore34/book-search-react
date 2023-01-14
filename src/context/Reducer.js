@@ -2,9 +2,11 @@ import { actions } from "./Actions";
 export default function reducer(state, action) {
     switch(action.type) {
         case actions.getBooks:
+            // returning action.payload clears old statemaking sure view only renders the new query
             return action.payload
 
         case actions.loadBooks:
+            // sets state to null while fetch request works
             return null
 
         case actions.addWishlist:
@@ -23,13 +25,16 @@ export default function reducer(state, action) {
             return newState;
 
         case actions.deleteWishlist:
+            // filter state to remove id included in action.payload
             let filteredState = state.filter(book => {
                 return book.id !== action.payload
             })
+            // save updated wishlist to localstorage
             window.localStorage.setItem("wishlist", JSON.stringify(filteredState))
             return filteredState;
 
         default:
+            // default case just keeps state as is to prevent errors
             return state
     }
 }
