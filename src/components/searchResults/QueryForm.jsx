@@ -14,7 +14,8 @@ const QueryForm = () => {
   }
 
   const handleSubmit = async () => {
-    setBooks({type: "books/loading"})
+    setBooks({type: "books/loading"});
+    trie.insert(queryValue);
     let url = `https://www.googleapis.com/books/v1/volumes?q=${queryValue}&startIndex=0&maxResults=20`
     let req = await fetch(url);
     let data = await req.json();
