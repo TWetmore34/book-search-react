@@ -16,7 +16,7 @@ const Loading = () => {
       }
     })
   return (
-    <p>{loadState}</p>
+    <p className='text-center'>{loadState}</p>
   )
 }
 
