@@ -3,6 +3,7 @@
   --color-btn-delete: rgba(255, 0, 0, 0.715);
   --color-btn-submit: rgba(0, 60, 255, 0.642);
   --height-input: 25px;
+  --btn-expand-width: 50px;
 }
 * {
   box-sizing: border-box;
@@ -37,8 +38,9 @@ li {
   border: 1px solid var(--color-border-card);
   box-shadow: 1px 1px 1px 1px var(--color-border-card);
   border-radius: 2%;
+  position: relative;
+  height: auto;
 }
-
 .book--text__container {
   margin: 4%;
   width: 50%;
@@ -76,10 +78,20 @@ button {
   background-color: var(--color-btn-submit);
 
 }
+
+.btn--expand {
+  height: 25px;
+  width: var(--btn-expand-width);
+  position: absolute;
+  left: calc(50% - var(--btn-expand-width) / 2);
+  bottom: 0;
+}
+
 input[type="text"] {
   height: var(--height-input);
 
 }
+
 form {
   margin-left: calc(25%);
   margin-top: 2%;
