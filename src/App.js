@@ -1,24 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-
+import ContextStoreProvider from "./context/ContextStore"
+import BookList from './components/searchResults/BookList';
+import QueryForm from './components/searchResults/QueryForm';
+import Wishlist from './components/wishlist/Wishlist';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ContextStoreProvider>
+      <QueryForm />
+      <div className='app__container'>
+        <BookList />
+        <Wishlist />
+      </div>
+    </ContextStoreProvider>
   );
 }
 

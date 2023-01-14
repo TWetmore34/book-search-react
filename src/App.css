@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+:root {
+  --color-border-card: lightgrey;
+  --color-btn-delete: rgba(255, 0, 0, 0.715);
+  --color-btn-submit: rgba(0, 60, 255, 0.642);
+  --height-input: 25px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+}
+li {
+  list-style-type: none;
+}
+.app__container {
+  display: flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.booklist {
+  width: 80%;
+  height: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.img--responsive {
+  width: 25%;
+  height: 25%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.text--bold {
+  font-weight: bold;
+}
+
+.book--info__container {
+  margin: 1% 5% 5% 5%;
+  display: flex;
+  padding: 1%;
+  border: 1px solid var(--color-border-card);
+  box-shadow: 1px 1px 1px 1px var(--color-border-card);
+  border-radius: 2%;
+}
+
+.book--text__container {
+  margin: 4%;
+  width: 50%;
+}
+
+.book--text__container > p {
+  margin: 4%;
+}
+
+.wishlist__container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.wishlist--item__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 3px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  border: 0;
+  border-radius: 10%;
+  padding: 3px;
+  margin: 2px;
+}
+
+.btn--delete {
+  background-color: var(--color-btn-delete);
+}
+
+.btn--submit {
+  height: var(--height-input);
+  background-color: var(--color-btn-submit);
+
+}
+input[type="text"] {
+  height: var(--height-input);
+
+}
+form {
+  margin-left: calc(25%);
+  margin-top: 2%;
 }
