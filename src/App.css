@@ -41,6 +41,11 @@ li {
   position: relative;
   height: auto;
 }
+
+.book--info__container:hover {
+  cursor: pointer;
+}
+
 .book--text__container {
   margin: 4%;
   width: 50%;
@@ -61,6 +66,10 @@ li {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 3px;
+}
+
+.wishlist--item__container:hover {
+  cursor: pointer;
 }
 
 button {

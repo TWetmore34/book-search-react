@@ -17,10 +17,14 @@ const QueryForm = () => {
   // handleChange sets suggestions based on the trie autocomplete function (results limited to 5)
   // then sets query value
   const handleChange = (e) => {
-    setSuggestions(trie.autoComplete(e.target.value).slice(0,5))
+    let sentence = e.target.value.split(" ")
+    let lastWord = sentence[sentence.length-1]
+    setSuggestions(trie.autoComplete(lastWord).slice(0,5))
     setQueryValue(e.target.value)
   }
-
+  // useEffect(() => {
+  //   console.log(suggestions)
+  // }, [suggestions])
   const handleSubmit = async () => {
     // generate books/loading for the <Loading /> component to render and expands trie for future searches (NOTE: currently does not last past a page refresh - working on a fix)
     setBooks(loadBooks());
@@ -45,7 +49,10 @@ const QueryForm = () => {
       <div>Choose a browser from this list:</div>
       <input list="query" onChange={(e) => handleChange(e)} />
       <datalist id="query">
-        {suggestions?.map((s, idx) => <option key={idx} value={s}/>
+        {suggestions?.map((s, idx) => {
+        let newArr = queryValue.split(" ")
+        newArr.pop()
+        return <option key={idx} value={newArr.join(" ") + " " + s}/>}
         )}
       </datalist>
         <button className='btn--submit' onClick={(e) => {
